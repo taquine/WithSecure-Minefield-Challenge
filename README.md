@@ -1,5 +1,5 @@
 # WithSecure-Minefield-Challenge
-Technical cahllenge for WithSecure job interview
+Technical challenge for WithSecure job interview
 
 DFS approach to maze solving using an exploration FIFO queue to generate a tree data structure which can be backtracked to get the reverse order of moves
 
