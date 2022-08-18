@@ -47,12 +47,12 @@ function getChildren(maze, cPos) {
     for (let i = 0; i < options.length; i++) {
         let n = options[i];
 
-        if (isValid(maze, n) && !isVisited(n)) {
+        if (isValid(maze, n) && !isVisited(n)) { //filter out the moves that arent possible
             children.push(n);
         }
     }
 
-    children.forEach((c) => {
+    children.forEach((c) => { //set parent and child ids
         c.parent = currentPos.id;
         c.id = idCounter++;
     });
@@ -60,7 +60,7 @@ function getChildren(maze, cPos) {
     return children;
 }
 
-//backtrack the path from the end to the origin while saving the moves
+//backtrack the path from the end to the origin while saving the moves (val of node is the move)
 function getPath() {
     let parent = visited[visited.length - 1],
         tmp = "";
@@ -99,11 +99,11 @@ function traverse() {
  //////////////////////////      Main      //////////////////////////
 ////////////////////////////////////////////////////////////////////
 
-let maze = [...Array(22)].map(e => Array(22)),      //maze array
-    dTop = [{ x: 0, y: 0, id: 0, parent: null, val: ""}],    //data queue of sorts
-    visited = [],                                   //visited nodes
-    idCounter = 1,                                  //counter for node ids
-    currentPos = {};                                //current position
+let maze = [...Array(22)].map(e => Array(22)),              // maze array
+    dTop = [{ x: 0, y: 0, id: 0, parent: null, val: ""}],   // discovery queue
+    visited = [],                                           // visited nodes
+    idCounter = 1,                                          // counter for node ids
+    currentPos = {};                                        // current position
 
 
 traverse();
